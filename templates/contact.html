@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+   <body>
+      <h2 style = "text-align: center;">IHSA Team Search Tool</h2>
+
+      <form action = "http://localhost:5000/home" method = post>
+         <fieldset>
+            <legend>Search by State</legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px; font-family: Arial;>
+               {{ form.language.label }}<br>
+               {{ form.language }}
+               <br>
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+
+   </body>
+</html>

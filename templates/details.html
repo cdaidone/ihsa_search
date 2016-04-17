@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title> {{ state }} Teams </title>
+</head>
+
+<body>
+  {% extends "bootstrap/base.html" %}
+  {% block title %}IHSA Search{% endblock %}
+
+  {% block content %}
+    <h1>IHSA School Search Tool</h1>
+
+    <div id="container">
+
+      <h1>{{ state }}</h1>
+
+    
+      <p>{{ team }}</p>
+
+      <!--{% for coach in coach %}
+      <p>Coach: {{ coach }}</p>
+      {% endfor %}
+      <!--{% for coach in state, team, coach %}
+      <p>Coach: {{ coach }}</p>
+      {% endfor %}-->
+
+      <a href={{ url_for('search', _external=True)}}>Go Back</a>
+    </div> <!-- close container -->
+    {% endblock %}
+
+</body>
+</html>
