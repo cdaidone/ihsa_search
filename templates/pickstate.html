@@ -4,13 +4,14 @@
 {% block head %}
 {{ super() }}
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='pickstate.css') }}">
-<!-- put CSS files here -->
 {% endblock %}
 
 {% block navbar %}
+
 <button type="button" class="btn btn-default btn-lg" style="padding: 12px 22px; border-style: none; margin: 1em 0; background: none;">
-<a href={{ url_for('home', _external=True)}} id="back" style="text-decoration: none;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back</a>
+  <a href={{ url_for('home', _external=True)}} id="back" style="text-decoration: none;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back</a>
 </button>
+
 {% endblock %}
 
 
@@ -19,7 +20,7 @@
 <div class="container">
   <h1 id="title">IHSA School Search Tool</h1>
   <div class="row">
-    <div class="col-md-12" id="column">
+    <div class="col-md-12">
       <div class="center-block">
         <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="pick">

@@ -1,4 +1,4 @@
-PythonAnywhere link: 
+PythonAnywhere link: http://cdaidone.pythonanywhere.com/
 
 ***Introduction***
 In the spirit of the business mind set, efficiency is what drove the inspiration for this project. As an IHSA team captain, I frequently direct prospective students and riders to the IHSA website to get more information about teams.
@@ -7,7 +7,7 @@ However, the "Current Teams" tool currently available on the site doesn't help u
 
 My solution is to allow users to search by standard geographic region in the United States: Northeast, South, West, and Midwest. Once a region is selected, users can then select the states listed within each region and reveal the teams and their respective coaches within the state selected.
 
-This app was built using HTML, CSS, Javascript, Python, Flask, Bootstrap, and BeautifulSoup. The database of teams and their relevant information was collected via web scraping.
+This app was built using HTML, CSS, JavaScript, Python, Flask, Bootstrap, and BeautifulSoup. The database of teams and their relevant information was collected via web scraping.
 
 For reference, IHSA website: http://www.ihsainc.com
 
@@ -16,7 +16,7 @@ I scraped the IHSA website to collect all the Universities with teams, their coa
 
 This information is written into a CSV file via CSV Dict Writer (schools2.csv).
 
-I used Mr. DataConverter to convert the csv data into a python dict (school_list.py). The regions were created by organizing the states into lists and assigning variables named with the respective regions.
+I used Mr. Data Converter to convert the csv data into a python dict (school_list.py). The regions were created by organizing the states into lists and assigning variables named with the respective regions.
 
 ***Step 2: Build App***
 The main file of the app is ihsa_app.py. This file holds the functions that allow the app to cycle through the regions, matching the states to the regions, and listing the teams and coaches.
@@ -65,7 +65,7 @@ There are four routes: /home, /home/search, /home/search/<region>, and /home/sea
 
       - Above the table, the state selected is printed using Flask, {{ state_name }}.
 
-      - A for loop is used to populate the table. This part was tricky to figure out, I kept using the variable name to reference "team" and "coach." However, row[0] and row[1] ended up working to reference their location.
+      - A for loop is used to populate the table. This part was tricky to figure out; I kept using the variable name to reference "team" and "coach." However, row[0] and row[1] ended up working to reference their location.
 
       - Other problems I encountered:
         - I originally planned on having a footer at the bottom of the details.html page. However, due to the nature of the page structure and varying size container 5 (bottom half of the page, #c_5), having a footer only caused problems. The solution was to move the footer to the pickstates.html page.

@@ -1,26 +1,13 @@
-#main {
-  background-color: #1d2120;
-  height: 100%;
-  width: 100%;
-}
-
-#main_image{
-  width: 100%;
-  margin-left: 27em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
 #search {
   text-decoration: none;
   color: #b7162c;
   text-transform: uppercase;
-  font-family: Geomanist;
+  font-family: Geomanist, Arial, sans-serif;
   font-size: 25px;
   }
 
 #title{
-  font-family: Brela;
+  font-family: Brela, Arial, sans-serif;
   color: #b7162c;
   font-size: 43em;
   margin-top: auto;
@@ -29,7 +16,7 @@
 }
 
 #title2{
-  font-family: Geomanist;
+  font-family: Geomanist, Arial, sans-serif;
   color: #1F2A60;
   font-size: 13em;
   margin-top: -1em;

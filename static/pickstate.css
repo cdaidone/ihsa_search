@@ -4,7 +4,7 @@ h1{
   text-align: center;
   padding-bottom: 1em;
   color: #b7162c;
-  font-family: Geomanist;
+  font-family: Geomanist, Arial, sans-serif;
   font-size: 55px;
 }
 
@@ -12,9 +12,6 @@ a:hover{
   background-color: none;
 }
 
-#column {
-  text-align: center;
-}
 
 /* Drop down menu and Button */
 #pick {
