@@ -1,104 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <title> IHSA Search Tool </title>
-    <script src="static/bootstrap.min.js"></script>
-</head>
-<body>
+{% extends "bootstrap/base.html" %}
+{% block title %}IHSA Search{% endblock %}
 
-  {% extends "bootstrap/base.html" %}
-  {% block title %}IHSA Search{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='pickstate.css') }}">
+<!-- put CSS files here -->
+{% endblock %}
 
-  {% block content %}
-    <h1>IHSA School Search Tool</h1>
+{% block navbar %}
+<button type="button" class="btn btn-default btn-lg" style="padding: 12px 22px; border-style: none; margin: 1em 0; background: none;">
+<a href={{ url_for('home', _external=True)}} id="back" style="text-decoration: none;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back</a>
+</button>
+{% endblock %}
 
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pick a State <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a id="AL" value="AL" href="/home/search/">Alabama</a></li>
-        <li><a id="AZ" value="AZ" href="#">Arizona</a></li>
-        <li><a id="BC" value="BC" href="#">British Columbia</a></li>
-        <li><a id="CA" value="CA" href="#">California</a></li>
-        <li><a id="CO" value="CO" href="#">Colorado</a></li>
-        <li><a id="CT" value="CT" href="#">Conneticut</a></li>
-        <li><a id="DC" value="DC" href="#">Washington DC</a></li>
-        <li><a id="DE" value="DE" href="#">Delaware</a></li>
-        <li><a id="FL" value="FL" href="#">Florida</a></li>
-        <li><a id="GA" value="GA" href="#">Georgia</a></li>
-        <li><a id="IA" value="IA" href="#">Indiana</a></li>
-        <li><a id="IL" value="IL" href="#">Illinois</a></li>
-        <li><a id="IN" value="IN" href="#">Indiana</a></li>
-        <li><a id="KS" value="KS" href="#">Kansas</a></li>
-        <li><a id="KY" value="KY" href="#">Kentucky</a></li>
-        <li><a id="LA" value="LA" href="#">Louisiana</a></li>
-        <li><a id="MA" value="MA" href="#">Massachusetts</a></li>
-        <li><a id="MD" value="MD" href="#">Maryland</a></li>
-        <li><a id="ME" value="ME" href="#">Maine</a></li>
-        <li><a id="MI" value="MI" href="#">Michigan</a></li>
-        <li><a id="MN" value="MN" href="#">Minnesota</a></li>
-        <li><a id="MO" value="MO" href="#">Montana</a></li>
-        <li><a id="MS" value="MS" href="#">Mississippi</a></li>
-        <li><a id="MT" value="MT" href="#">Montana</a></li>
-        <li><a id="NC" value="NC" href="#">North Carolina</a></li>
-        <li><a id="ND" value="ND" href="#">North Dakota</a></li>
-        <li><a id="NE" value="NE" href="#">Nebraska</a></li>
-        <li><a id="NH" value="NH" href="#">New Hampshire</a></li>
-        <li><a id="NJ" value="NJ" href="#">New Jersey</a></li>
-        <li><a id="NY" value="NY" href="#">New York</a></li>
-        <li><a id="OH" value="OH" href="#">Ohio</a></li>
-        <li><a id="OK" value="OK" href="#">Oklahoma</a></li>
-        <li><a id="ON" value="ON" href="#">Ontario</a></li>
-        <li><a id="OR" value="OR" href="#">Oregon</a></li>
-        <li><a id="PA" value="PA" href="#">Pennsylvania</a></li>
-        <li><a id="RI" value="RI" href="#">Rhode Island</a></li>
-        <li><a id="SC" value="SC" href="#">South Carolina</a></li>
-        <li><a id="TN" value="TN" href="#">Tennessee</a></li>
-        <li><a id="TX" value="TX" href="#">Texas</a></li>
-        <li><a id="UT" value="UT" href="#">Utah</a></li>
-        <li><a id="VA" value="VA" href="#">Virginia</a></li>
-        <li><a id="VT" value="VT" href="#">Vermont</a></li>
-        <li><a id="WA" value="WA" href="#">Washington</a></li>
-        <li><a id="WI" value="WI" href="#">Wisconsin</a></li>
-        <li><a id="WV" value="WV" href="#">West Virginia</a></li>
-        <li><a id="WY" value="WY" href="#">Wyoming</a></li>
-      </ul>
+{% block content %}
+
+<div class="container">
+  <h1 id="title">IHSA School Search Tool</h1>
+  <div class="row">
+    <div class="col-md-12" id="column">
+      <div class="center-block">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="pick">
+            Pick a Region <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" id="drop">
+            {% for region in region_menu %}
+              <li><a href="/home/search/{{ region }}">{{ region }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="container">
-      <div class= "row">
-        <div class= "col-md-1">
-          <p><a href="/home/search/"
+<footer id="footer_1">
+  <div class="row">
+    <div class="col-md-4" id="linkedin">
+      <a href="https://www.linkedin.com/in/carinadaidone" target="_blank"><img src="/static/images/social.png"></a>
     </div>
-    {% endblock %}
+    <div class="col-md-4">
+      <p>Designed and developed by Carina Daidone</p>
+      <p>Final project for JOU4930 at the University of Florida</p>
+      <div>Icons made by <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a>, <a href="http://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    </div>
+    <div class="col-md-4" id="github">
+      <a href="https://github.com/cdaidone/ihsa_search" target="_blank"><img src="/static/images/github.png"></a>
+    </div>
+  </div>
+</footer>
 
-</body>
-
-
-<!--<script>
-$(document).ready(function() {
-  $("#space").on("click", ".selectlang", function() {
-        var whichlang = $(this).data('language');
-        $("#hideme").show();
-        $.ajax({
-          type: "POST",
-          url: "filter.php",
-          data: { language : whichlang },
-          success: function(response) {
-            $("#fill").html(response);
-            $("div.yes").hide();
-            $("#nsfwtoggle").text(
-              "Show NSFW words");
-            $("p.yes").text(
-              "This word is NSFW"
-            );
-          }
-        });
-      });
-    }); //end document ready
-</script>-->
-</html>
+{% endblock %}

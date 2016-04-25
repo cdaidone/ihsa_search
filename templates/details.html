@@ -1,35 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <title> {{ state }} Teams </title>
-</head>
+{% extends "bootstrap/base.html" %}
+{% block title %}IHSA Search{% endblock %}
 
-<body>
-  {% extends "bootstrap/base.html" %}
-  {% block title %}IHSA Search{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='details.css') }}">
+{% endblock %}
 
-  {% block content %}
-    <h1>IHSA School Search Tool</h1>
+{% block navbar %}
+{% endblock %}
 
-    <div id="container">
+{% block content %}
+  <!-- Background image of top container varies depending on the region chosen -->
+  {% if region == "South" %}
+  <div class="container" id="c_1">
+  {% elif region == "Northeast" %}
+  <div class="container" id="c_2">
+  {% elif region == "Midwest" %}
+  <div class="container" id="c_3">
+  {% elif region == "West" %}
+  <div class="container" id="c_4">
+  {% endif %}
 
-      <h1>{{ state }}</h1>
+      <div class="row">
+        <div class="col-md-12" id="top">
+          <button type="button" class="btn btn-default btn-lg" style="padding: 12px 22px; border-style: none; background: none;" id="back">
 
-    
-      <p>{{ team }}</p>
+            <a href={{ url_for('search', _external=True)}} style="text-decoration: none; color: #fff;"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back</a>
+          </button>
+          <caption id="source2"><a href="http://www.deshow.net/travel/" target="_blank" id="source">Source: Deshow.net</a></caption>
 
-      <!--{% for coach in coach %}
-      <p>Coach: {{ coach }}</p>
+          <h1 id="title">{{ region }}</h1>
+          <p id="description"><i>Choose the states below to discover the teams located in each state.</i></p>
+        </div>
+      </div>
+      <div class="row" id="states_row">
+          {% for state in states %}
+          <div class="col-xs-1" id="states">
+          <p><a href="/home/search/{{ region }}/{{ state }}" id="list">{{ state }}</a></p>
+        <!-- url_for('state', region=region)-->
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+
+    <!-- Bottom half of page with teams/coaches -->
+    <div class="container" id="c_5">
+      <h2 style="color: black;"><strong>{{ state_name }}</strong></h2>
+      <table class="table table-striped table-hover">
+        <th id="team_h">Team</th>
+        <th>Coach</th>
+        {% for row in state_list %}
+        <tr>
+          <div class="row" id="table_details">
+            <div class="col-md-6">
+              <td id="team">
+                <p>{{ row[0] }}</a></p>
+              </td>
+            </div>
+            <div class="col-md-6">
+              <td id="coach">
+                <p>{{ row[1] }}</p>
+              </td>
+            </div>
+        </tr>
       {% endfor %}
-      <!--{% for coach in state, team, coach %}
-      <p>Coach: {{ coach }}</p>
-      {% endfor %}-->
+        </table>
+    </div>
 
-      <a href={{ url_for('search', _external=True)}}>Go Back</a>
-    </div> <!-- close container -->
-    {% endblock %}
 
-</body>
-</html>
+  {% endblock %}
+  {% block scripts %}
+  {{ super() }}
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <!-- Put own scripts here - JS-->
+  {% endblock %}
