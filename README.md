@@ -1,6 +1,6 @@
 PythonAnywhere link: http://cdaidone.pythonanywhere.com/
 
-***Introduction***
+#Introduction
 In the spirit of the business mind set, efficiency is what drove the inspiration for this project. As an IHSA team captain, I frequently direct prospective students and riders to the IHSA website to get more information about teams.
 
 However, the "Current Teams" tool currently available on the site doesn't help users besides list the schools alphabetically or by IHSA sanctioned Zone and Region. Unfortunately for new students, they aren't familiar with the Zones and Regions teams are split into.
