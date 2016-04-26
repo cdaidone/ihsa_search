@@ -11,19 +11,20 @@ This app was built using HTML, CSS, JavaScript, Python, Flask, Bootstrap, and Be
 
 For reference, IHSA website: http://www.ihsainc.com
 
-***Step 1: Scrape the Data***
+#Steps
+###Step 1: Scrape the Data
 I scraped the IHSA website to collect all the Universities with teams, their coaches, and the state they are locate in. (ihsa_site_scrape.py)
 
 This information is written into a CSV file via CSV Dict Writer (schools2.csv).
 
 I used Mr. Data Converter to convert the csv data into a python dict (school_list.py). The regions were created by organizing the states into lists and assigning variables named with the respective regions.
 
-***Step 2: Build App***
+###Step 2: Build App
 The main file of the app is ihsa_app.py. This file holds the functions that allow the app to cycle through the regions, matching the states to the regions, and listing the teams and coaches.
 
 There are four routes: /home, /home/search, /home/search/<region>, and /home/search/<region>/<state_name>.
 
-***Step 3: Templates***
+###Step 3: Templates
 1. Home (home.html):
   - This is a simple landing page with a button that allows the user to advance to the next page.
 
@@ -74,7 +75,7 @@ There are four routes: /home, /home/search, /home/search/<region>, and /home/sea
 
         - An "extra" aspect I was going to add to this tool was to scrape the team websites and link them so that users could click on the university name and be directed to their website. However, several schools didn't have a website, some links were broken, and some have (very evidently) not been updated in years. I chose to bypass this aspect because of the inconsistency. Because of this, the primary purpose of this app remains to allow users to discover teams across the United States based on their geographical location. Users are savvy enough to quickly Google a team today, so I don't think it's too big of a problem.
 
-***Overall Experience***
+#Overall Experience
 There were two things I often asked myself when working on this project: "Is this a thing?" and "What do you mean?"
 
 Towards the end of this project, I found myself thinking more logically and asking "what if.." when trying to figure a function out. My intention was to keep this project simple since I knew I wasn't going to have a tremendous amount of time to work on it with the three other exams I had to study for. It was exactly the opposite. While the functionality of the app is quite simple, the code behind it took days. There were some sections of the files that took over five hours to figure out. With python, I discovered that while some of the errors you might come across might be the same that others have faced and solved, no error is exactly alike so it can be difficult to find an exact solution.
