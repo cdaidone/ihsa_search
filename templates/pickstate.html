@@ -3,6 +3,7 @@
 
 {% block head %}
 {{ super() }}
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='pickstate.css') }}">
 {% endblock %}
 
@@ -19,6 +20,7 @@
 
 <div class="container">
   <h1 id="title">IHSA School Search Tool</h1>
+  <p id="intro">Where's your dream IHSA team located?<br> Use the menu below to discover the teams throughout the country!</p>
   <div class="row">
     <div class="col-md-12">
       <div class="center-block">
