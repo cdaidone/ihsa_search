@@ -37,7 +37,7 @@ There are four routes: /home, /home/search, /home/search/<region>, and /home/sea
 
       <li><a href="/home/search/{{ region }}">{{ region }}</a></li>
 
-  - A footer is at the bottom of this page with info regarding this project and a link to my GitHub page.
+  - A footer is at the bottom of this page with info regarding this project and a link to my GitHub page. The footer disappears for smaller screen sizes.
 
 3. Details (details.html):
   - There are 2 parts to this template and 2 different routes feed into it.
